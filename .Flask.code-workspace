@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"workbench.colorTheme": "Atom One Dark Coal",
+		"workbench.preferredDarkColorTheme": "Atom One Dark Coal",
+		"workbench.colorCustomizations": {
+
+		},
+		"workbench.preferredHighContrastColorTheme": "Atom One Dark Coal",
+		"workbench.preferredHighContrastLightColorTheme": "Atom One Dark Coal",
+		"workbench.preferredLightColorTheme": "Atom One Dark Coal"
+	}
+}
