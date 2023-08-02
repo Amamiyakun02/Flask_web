@@ -1,4 +1,4 @@
-from flask import Flask, request,render_template
+from flask import Flask, render_template
 from flask_restful import Resource, Api
 from flask_cors import CORS
 from flask_login import LoginManager

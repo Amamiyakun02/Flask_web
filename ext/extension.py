@@ -3,4 +3,3 @@ from config import SQLALCHEMY_DATABASE_URI
 
 
 mysql = SQLAlchemy()
-
