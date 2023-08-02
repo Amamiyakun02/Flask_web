@@ -1,15 +1,12 @@
 from flask import Flask, request,render_template
 from flask_restful import Resource, Api
 from flask_cors import CORS
-from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
 from ext.extension import mysql
 
 # import models
 from database.models.biodata import Biodata
 from database.models.matkul import Matakuliah
-from database.models.users import Users
-
 from main import *
 from auth import *
 from config import *
@@ -30,6 +27,9 @@ myApp.config['SECRET_KEY'] = SECRET_KEY
 myApp.config['SQLALCHEMY_DATABASE_URI'] = SQLALCHEMY_DATABASE_URI
 
 mysql.init_app(myApp)
+
+login_manager - LoginManager()
+login_manager.login_view = 'auth.login'
 
 # base routes
 @myApp.route('/')
