@@ -7,3 +7,4 @@ class Users(UserMixin, mysql.Model):
     username = mysql.Column(mysql.String(255), unique=False, nullable=False)
     password = mysql.Column(mysql.String(255), nullable=False)
     role = mysql.Column(mysql.String(255), nullable=True)
+    email = mysql.Column(mysql.String(255), nullable=False, unique=True)
