@@ -19,12 +19,12 @@ def login_post():
     password = request.form.get('password')
     remember = request.form.get('remember')
     user_login = Users.query.filter_by(email=email).first()
-    if not user_login and not check_password_hash(user_login.password, password):
-        flash('please check your email and password')
+    if user_login and check_password_hash(user_login.password, password):
+        login_user(user_login)
+        return redirect(url_for('main.profile'))
+    else:
+        flash('Please check your email and password')
         return redirect(url_for('auth.login'))
-
-    login_user(user_login)
-    return redirect(url_for('main.profile'))
 
 
 @auth.route('/signup')

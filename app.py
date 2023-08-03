@@ -8,7 +8,6 @@ from config import *
 # import models
 from database.models import Biodata, Matakuliah, Users
 
-
 # # inisialisasi aplikasi
 myApp = Flask(__name__)
 
@@ -28,10 +27,13 @@ mysql.init_app(myApp)
 login_manager = LoginManager()
 login_manager.login_view = 'auth.login'
 login_manager.init_app(myApp)
+
+
 @login_manager.user_loader
 def load_user(user_id):
     # Your code here to load and return the user object based on user_id
     return Users.query.get(int(user_id))
+
 
 # base routes
 @myApp.route('/')
