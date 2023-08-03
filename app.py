@@ -1,13 +1,11 @@
 from flask import Flask
 from flask_cors import CORS
-from flask_login import LoginManager
+from flask_login import LoginManager, current_user
 from flask_restful import Api
-
 from auth import *
 from config import *
 # import models
-from database.models.biodata import Biodata
-from database.models.matkul import Matakuliah
+from database.models import Biodata, Matakuliah, Users
 from main import *
 
 # # inisialisasi aplikasi
@@ -33,11 +31,11 @@ login_manager.login_view = 'auth.login'
 # base routes
 @myApp.route('/')
 def data():
-    all_akun = Users.query.all()
+    akun = Users.query.filter_by(id=3).first()
     all_nilai = Matakuliah.query.all()
     all_user = Biodata.query.all()
     print(type(all_user))
-    return render_template('main/hello.html', value=[all_user, all_nilai, all_akun])
+    return render_template('main/hello.html', value=[all_user, all_nilai, akun.password])
 
 
 @myApp.route('/card_items')

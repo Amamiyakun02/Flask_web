@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template, redirect, url_for, request
 from flask import flash
 from werkzeug.security import generate_password_hash, check_password_hash
-from flask_login import login_user
+from flask_login import login_user, logout_user, login_required
 from database.models.users import Users
 from ext.extension import mysql
 
@@ -11,6 +11,7 @@ auth = Blueprint('auth', __name__)
 @auth.route('/login')
 def login():
     return render_template('yt/login.html')
+
 
 @auth.route('/login', methods=['POST'])
 def login_post():
@@ -52,5 +53,6 @@ def signup_post():
 
 
 @auth.route('/logout')
+@login_required
 def logout():
     return redirect(url_for('main.index'))

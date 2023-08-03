@@ -4,12 +4,12 @@ from flask_login import current_user, login_required
 main = Blueprint('main', __name__)
 
 
-@main.route('/')
+@main.route('/index')
 def index():
     return render_template('yt/index.html')
 
 
-@main.route('/profile')
+@main.route('/')
 @login_required
 def profile():
     username = current_user.username
